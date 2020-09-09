@@ -10,9 +10,20 @@ public class ImageViewerGUI {
     private JButton buttonEasy;
     private JButton buttonMedium;
     private JButton buttonHard;
+
+    //====================================================== Sample "Images" ========================================================
     public static final Color[][] easyImage = new Color[][]{{Color.RED}};
     public static final Color[][] mediumImage = new Color[][]{{Color.RED, Color.GREEN}, {Color.BLUE, Color.WHITE}};
-    public static final Color[][] hardImage = new Color[][]{{Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW}, {Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK.brighter(), Color.PINK.brighter(), Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.YELLOW, Color.PINK, Color.PINK, Color.PINK.brighter().brighter(), Color.PINK.brighter().brighter(), Color.YELLOW, Color.YELLOW}, {Color.YELLOW}};
+    public static final Color[][] hardImage = new Color[][]{{Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW,
+                                                             Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW}, {Color.YELLOW,
+                                                             Color.WHITE, Color.WHITE, Color.YELLOW, Color.YELLOW, Color.WHITE,
+                                                             Color.WHITE, Color.YELLOW}, {Color.YELLOW}, {Color.YELLOW, Color.PINK,
+                                                             Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.YELLOW},
+                                                             {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK.brighter(),
+                                                                     Color.PINK.brighter(), Color.PINK, Color.YELLOW}, {Color.YELLOW,
+                                                             Color.YELLOW, Color.PINK, Color.PINK, Color.PINK.brighter().brighter(),
+                                                             Color.PINK.brighter().brighter(), Color.YELLOW, Color.YELLOW}, {Color.YELLOW}};
+    //===============================================================================================================================
 
     public static void main(String[] args) {
         ImageViewerGUI program = new ImageViewerGUI();
