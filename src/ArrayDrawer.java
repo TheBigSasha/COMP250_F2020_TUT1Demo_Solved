@@ -6,6 +6,9 @@ import java.awt.*;
 public class ArrayDrawer extends Canvas {
     private Color[][] dataset;
 
+    /*
+    Constructor for array drawer. It sets dataset to be what is passed from the declaration and it uses it to instantiate the field. It also calls the constructor of Canvas.
+     */
     public ArrayDrawer(Color[][] input) {
         super();
         dataset = input;
@@ -42,8 +45,8 @@ public class ArrayDrawer extends Canvas {
             for (int i = 0; i < dataset.length; i++) {
                 for (int j = 0; j < dataset[i].length; j++) {                       //Nested for loop to iterate through the array at this height
                     g.setColor(dataset[i][j]);                                      //Set the color to the one a this index of the color array
-                    g.fillRect(j * 10, i * 10, 10,                       //Multiply everything in here by 10!
-                            10);                                              //Draw the rectangle.
+                    g.fillRect(j * 10, i * 10, 10,                                  //Multiply everything in here by 10!
+                            10);                                                    //Draw the rectangle.
                 }
             }
             //===============================================================================================
