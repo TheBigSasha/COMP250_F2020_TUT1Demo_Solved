@@ -18,7 +18,7 @@ public class ArraysGraphics {
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createUIComponents();
-        frame.pack();
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 
@@ -26,9 +26,9 @@ public class ArraysGraphics {
         buttonOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                buttonOne.setText("Clicked!");
-                mainPanel.add(new DisplayGraphics(new Color[][]{{Color.RED, Color.WHITE, Color.BLUE}, {Color.GREEN}}));
-                //mainPanel.add(new DisplayGraphics());
+                buttonOne.setText("Drew your Array!");
+                mainPanel.add(new DisplayGraphics(new Color[][]{{Color.RED, Color.WHITE, Color.BLUE}, {Color.GREEN},
+                        {Color.WHITE, Color.RED, Color.BLUE}}));
             }
         });
 
@@ -72,8 +72,7 @@ public class ArraysGraphics {
         }
 
         public void paint(Graphics g) {
-            int pixelsPerItemHor = getWidth() / getLongestElement(dataset);
-            int pixrlsPerItemVer = getHeight() / dataset.length;
+            int pixelsPerItemVer = getHeight() / dataset.length;
 
             //TODO: Make a loop which iterates through our array and draws the colour at that element in the right
             // place. This must do a few things: Calculate the size of each color and all.
@@ -83,8 +82,7 @@ public class ArraysGraphics {
                 int pixelsPerItemHorAtIndex = getWidth() / lengthAtThisIndex;
                 for (int j = 0; j < dataset[i].length; j++) {   //TODO: [INSTR] Show error here by putting i++
                     g.setColor(dataset[i][j]);
-                    System.out.println("Painted " + dataset[i][j].getRGB() + " at " + j * pixelsPerItemHorAtIndex + ", " + i * pixrlsPerItemVer);
-                    g.fillRect(j * pixelsPerItemHorAtIndex, i * pixrlsPerItemVer, getWidth() / lengthAtThisIndex,
+                    g.fillRect(j * pixelsPerItemHorAtIndex, i * pixelsPerItemVer, getWidth() / lengthAtThisIndex,
                             getHeight() / dataset.length);
                 }
             }
@@ -101,7 +99,7 @@ public class ArraysGraphics {
             //TODO: This method must iterate through the dataset array and return the longest array!
 
 
-         //---------------------- Solution code 1 ----------------------
+            //---------------------- Solution code 1 ----------------------
 
 /*
             int largest = 0;
