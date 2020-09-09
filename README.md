@@ -3,9 +3,9 @@
 # Make your own photo viewer && Intro to arrays, loops, and Java syntax
 
 ## Install instructions
-### or IntelliJ IDEA
+### For IntelliJ IDEA
 VCS -> Get from Version Control... -> Paste the URL of this repository
-### or Eclipse
+### For Eclipse
 File -> Import -> Git -> Projects from Git (With Smart Import) -> Clone URI -> paste URL of this repository into the URI box -> Click next a bunch, setting directory at your own discression, Master branch from origin. All else default -> Finish
 
 ## How to Contribute
