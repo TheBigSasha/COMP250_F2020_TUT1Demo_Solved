@@ -32,8 +32,8 @@ public class ArrayDrawer extends Canvas {
 
         //============ DEFAULT SOLUTION : CHANGE CODE BELOW ==============
 
-        g.setColor(dataset[0][0]);                    //Read the array at an index to set the colour
-        g.fillRect(0,0,10,10);      //Draw a rectangle
+        g.setColor(dataset[0][0]);                                                  //Read the array at an index to set the colour
+        g.fillRect(0,0,10,10);                                                      //Draw a rectangle
 
         //================================================================
 
