@@ -1,7 +1,7 @@
 # COMP250 Fall 2020 Tutorial 1
 
 ## Make your own photo viewer && Intro to arrays, loops, and Java syntax
-Try to write the code in the master branch and then checkout the solution branch in order to see how I solved the problem!
+Try to write the code in the master branch and then checkout the Solved branch in order to see how I solved the problem!
 
 ## Install instructions
 ### For IntelliJ IDEA
