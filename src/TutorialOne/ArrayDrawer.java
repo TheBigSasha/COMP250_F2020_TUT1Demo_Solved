@@ -32,52 +32,10 @@ public class ArrayDrawer extends Canvas {
 
         //============ DEFAULT SOLUTION : CHANGE CODE BELOW ==============
 
-        g.setColor(dataset[0][0]);                                                  //Read the array at an index to set the colour
-        g.fillRect(0,0,10,10);                                                      //Draw a rectangle
+        g.setColor(dataset[0][0]);                          //Read the array at an index to set the colour
+        g.fillRect(0,0,10,10);            //Draw a rectangle
 
         //================================================================
-
-        /*
-            //====================================== Poor solution =====================================
-            for (int i = 0; i < dataset.length; i++) {
-                for (int j = 0; j < dataset[i].length; j++) {                       //Nested for loop to iterate through the array at this height
-                    g.setColor(dataset[i][j]);                                      //Set the color to the one a this index of the color array
-                    g.fillRect(j, i, 1,
-                            1);                                                     //Draw the rectangle.
-                }
-            }
-            //===============================================================================================
-         */
-
-
-        /*
-            //====================================== Slightly better solution =====================================
-            for (int i = 0; i < dataset.length; i++) {
-                for (int j = 0; j < dataset[i].length; j++) {                       //Nested for loop to iterate through the array at this height
-                    g.setColor(dataset[i][j]);                                      //Set the color to the one a this index of the color array
-                    g.fillRect(j * 10, i * 10, 10,                                  //Multiply everything in here by 10!
-                            10);                                                    //Draw the rectangle.
-                }
-            }
-            //===============================================================================================
-
-         */
-
-        /*
-        //====================================== FINAL SOLUTION ==========================================
-        int pixelsPerItemVer = getHeight() / dataset.length;
-        for (int i = 0; i < dataset.length; i++) {                              //We cannot use a foreach loop here because we must use the numbers i and j for scaling
-            int lengthAtThisIndex = dataset[i].length;                          //Calculate the length of the array at this index to size the color accordingly
-            int pixelsPerItemHorAtIndex = getWidth() / lengthAtThisIndex;       //Calculating how many pixels each color will take up
-            for (int j = 0; j < dataset[i].length; j++) {                       //Nested for loop to iterate through the array at this height
-                g.setColor(dataset[i][j]);                                      //Set the color to the one a this index of the color array
-                g.fillRect(j * pixelsPerItemHorAtIndex, i * pixelsPerItemVer, getWidth() / lengthAtThisIndex,
-                        getHeight() / dataset.length);                    //Draw the rectangle. We multiply the index by the pixels per item to get the position.
-            }
-        }
-        //==============================================================================================
-
-         */
 
     }
 }
