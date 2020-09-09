@@ -1,3 +1,5 @@
+package TutorialOne;
+
 import java.awt.*;
 
 /**
@@ -27,6 +29,14 @@ public class ArrayDrawer extends Canvas {
         // place. This must do a few things: Calculate the size of each color and all.
 
         System.out.println("My window is " + getWidth() + " pixels wide and " + getHeight() + " pixels tall. Could this be important?");
+
+        //============ DEFAULT SOLUTION : CHANGE CODE BELOW ==============
+
+        g.setColor(dataset[0][0]);                    //Read the array at an index to set the colour
+        g.fillRect(0,0,10,10);      //Draw a rectangle
+
+        //================================================================
+
         /*
             //====================================== Poor solution =====================================
             for (int i = 0; i < dataset.length; i++) {
@@ -53,7 +63,8 @@ public class ArrayDrawer extends Canvas {
 
          */
 
-        //====================================== SOLUTION LOOP ==========================================
+        /*
+        //====================================== FINAL SOLUTION ==========================================
         int pixelsPerItemVer = getHeight() / dataset.length;
         for (int i = 0; i < dataset.length; i++) {                              //We cannot use a foreach loop here because we must use the numbers i and j for scaling
             int lengthAtThisIndex = dataset[i].length;                          //Calculate the length of the array at this index to size the color accordingly
@@ -65,6 +76,8 @@ public class ArrayDrawer extends Canvas {
             }
         }
         //==============================================================================================
+
+         */
 
     }
 }

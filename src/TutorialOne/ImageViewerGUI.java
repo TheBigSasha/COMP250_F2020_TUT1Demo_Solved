@@ -1,10 +1,11 @@
+package TutorialOne;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ArraysGraphics {
+public class ImageViewerGUI {
     private JPanel mainPanel;
     private JButton buttonEasy;
     private JButton buttonMedium;
@@ -14,11 +15,17 @@ public class ArraysGraphics {
     public static final Color[][] hardImage = new Color[][]{{Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW}, {Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK.brighter(), Color.PINK.brighter(), Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.YELLOW, Color.PINK, Color.PINK, Color.PINK.brighter().brighter(), Color.PINK.brighter().brighter(), Color.YELLOW, Color.YELLOW}, {Color.YELLOW}};
 
     public static void main(String[] args) {
-        ArraysGraphics program = new ArraysGraphics();
+        ImageViewerGUI program = new ImageViewerGUI();
     }
 
-    public ArraysGraphics() {
-        JFrame frame = new JFrame("ArraysGraphics");
+    public ImageViewerGUI() {
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        JFrame frame = new JFrame("Welcome to COMP250!");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createUIComponents();
