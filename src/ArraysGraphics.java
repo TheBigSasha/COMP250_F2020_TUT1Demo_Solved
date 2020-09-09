@@ -3,11 +3,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class ArraysGraphics {
     private JPanel mainPanel;
-    private JButton buttonOne;
+    private JButton buttonEasy;
+    private JButton buttonMedium;
+    private JButton buttonHard;
+    public static final Color[][] easyImage = new Color[][]{{Color.RED}};
+    public static final Color[][] mediumImage = new Color[][]{{Color.RED, Color.GREEN}, {Color.BLUE, Color.WHITE}};
+    public static final Color[][] hardImage = new Color[][]{{Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.BLACK, Color.YELLOW}, {Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW, Color.YELLOW, Color.WHITE, Color.WHITE, Color.YELLOW}, {Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.PINK, Color.PINK, Color.PINK, Color.PINK.brighter(), Color.PINK.brighter(), Color.PINK, Color.YELLOW}, {Color.YELLOW, Color.YELLOW, Color.PINK, Color.PINK, Color.PINK.brighter().brighter(), Color.PINK.brighter().brighter(), Color.YELLOW, Color.YELLOW}, {Color.YELLOW}};
 
     public static void main(String[] args) {
         ArraysGraphics program = new ArraysGraphics();
@@ -22,13 +26,33 @@ public class ArraysGraphics {
         frame.setVisible(true);
     }
 
+    private void drawArray(Color[][] image) {
+        if (mainPanel.getComponents().length > 1) {
+            mainPanel.remove(1);
+        }
+        ArrayDrawer graphics = new ArrayDrawer(image);
+        mainPanel.add(graphics);
+        mainPanel.validate();
+
+    }
+
     private void createUIComponents() {
-        buttonOne.addActionListener(new ActionListener() {
+        buttonHard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                buttonOne.setText("Drew your Array!");
-                mainPanel.add(new DisplayGraphics(new Color[][]{{Color.RED, Color.WHITE, Color.BLUE}, {Color.GREEN},
-                        {Color.WHITE, Color.RED, Color.BLUE}}));
+                drawArray(hardImage);
+            }
+        });
+        buttonMedium.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             drawArray(mediumImage);
+            }
+        });
+        buttonEasy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawArray(easyImage);
             }
         });
 
@@ -51,9 +75,18 @@ public class ArraysGraphics {
     private void $$$setupUI$$$() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
-        buttonOne = new JButton();
-        buttonOne.setText("Button");
-        mainPanel.add(buttonOne, BorderLayout.NORTH);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        mainPanel.add(panel1, BorderLayout.NORTH);
+        buttonEasy = new JButton();
+        buttonEasy.setText("Easy \uD83D\uDC9A");
+        panel1.add(buttonEasy);
+        buttonMedium = new JButton();
+        buttonMedium.setText("Medium \uD83C\uDFAF");
+        panel1.add(buttonMedium);
+        buttonHard = new JButton();
+        buttonHard.setText("Hard \uD83D\uDD25");
+        panel1.add(buttonHard);
     }
 
     /**
@@ -61,70 +94,5 @@ public class ArraysGraphics {
      */
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
-    }
-
-    class DisplayGraphics extends Canvas {
-        private Color[][] dataset;
-
-        public DisplayGraphics(Color[][] input) {
-            super();
-            dataset = input;
-        }
-
-        public void paint(Graphics g) {
-            int pixelsPerItemVer = getHeight() / dataset.length;
-
-            //TODO: Make a loop which iterates through our array and draws the colour at that element in the right
-            // place. This must do a few things: Calculate the size of each color and all.
-
-            for (int i = 0; i < dataset.length; i++) {
-                int lengthAtThisIndex = dataset[i].length;
-                int pixelsPerItemHorAtIndex = getWidth() / lengthAtThisIndex;
-                for (int j = 0; j < dataset[i].length; j++) {   //TODO: [INSTR] Show error here by putting i++
-                    g.setColor(dataset[i][j]);
-                    g.fillRect(j * pixelsPerItemHorAtIndex, i * pixelsPerItemVer, getWidth() / lengthAtThisIndex,
-                            getHeight() / dataset.length);
-                }
-            }
-        }
-
-
-        /*
-         * This method is used to calculate how many pixels each colour should take up. So if we have a window of
-         * width 100 and a longest horizontal array of 10, it will return 10.
-         * <p>
-         * Notice how we don't care what the array is of
-         */
-        private int getLongestElement(Object[][] input) {
-            //TODO: This method must iterate through the dataset array and return the longest array!
-
-
-            //---------------------- Solution code 1 ----------------------
-
-/*
-            int largest = 0;
-            for(int i = 0; i < input.length; i++){
-                if(input[i].length > largest){
-                    largest = input[i].length;
-                }
-            }
-            return largest;
-*/
-
-            //--------------------- End of Solution 1 -----------------------
-
-
-            //---------------------- Solution code 2 ----------------------
-            int largest = 0;
-            for (Object[] objects : input) {
-                if (objects.length > largest) {
-                    largest = objects.length;
-                }
-            }
-            return largest;
-            //--------------------- End of Solution 2 -----------------------
-
-        }
-
     }
 }
