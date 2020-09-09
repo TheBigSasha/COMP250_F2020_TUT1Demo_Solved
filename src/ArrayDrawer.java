@@ -1,5 +1,8 @@
 import java.awt.*;
 
+/**
+ * This class walks the user through iteration through arrays with for loops!
+ */
 public class ArrayDrawer extends Canvas {
     private Color[][] dataset;
 
@@ -34,7 +37,7 @@ public class ArrayDrawer extends Canvas {
          */
 
 
-
+        /*
             //====================================== Slightly better solution =====================================
             for (int i = 0; i < dataset.length; i++) {
                 for (int j = 0; j < dataset[i].length; j++) {                       //Nested for loop to iterate through the array at this height
@@ -45,7 +48,8 @@ public class ArrayDrawer extends Canvas {
             }
             //===============================================================================================
 
-/*
+         */
+
         //====================================== SOLUTION LOOP ==========================================
         int pixelsPerItemVer = getHeight() / dataset.length;
         for (int i = 0; i < dataset.length; i++) {                              //We cannot use a foreach loop here because we must use the numbers i and j for scaling
@@ -58,45 +62,6 @@ public class ArrayDrawer extends Canvas {
             }
         }
         //==============================================================================================
-        */
-    }
-
-
-    /*
-     * This method is used to calculate how many pixels each colour should take up. So if we have a window of
-     * width 100 and a longest horizontal array of 10, it will return 10.
-     * <p>
-     * Notice how we don't care what the array is of
-     */
-    private int getLongestElement(Object[][] input) {
-        //TODO: This method must iterate through the dataset array and return the longest array!
-
-
-        //---------------------- Solution code 1 ----------------------
-
-/*
-            int largest = 0;
-            for(int i = 0; i < input.length; i++){
-                if(input[i].length > largest){
-                    largest = input[i].length;
-                }
-            }
-            return largest;
-*/
-
-        //--------------------- End of Solution 1 -----------------------
-
-
-        //---------------------- Solution code 2 ----------------------
-        int largest = 0;
-        for (Object[] objects : input) {
-            if (objects.length > largest) {
-                largest = objects.length;
-            }
-        }
-        return largest;
-        //--------------------- End of Solution 2 -----------------------
 
     }
-
 }
